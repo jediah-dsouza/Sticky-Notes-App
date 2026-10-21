@@ -1,0 +1,38 @@
+/* Paper Atelier — foundation tokens. Colors in use are checked in browser tests. */
+:root {
+  --backdrop: rgb(40 39 32 / 35%);
+  color-scheme: light;
+  --canvas: #f5f1e8;
+  --surface: #fffcf6;
+  --surface-muted: #ede7da;
+  --ink: #282720;
+  --ink-secondary: #625f55;
+  --border: #d9d1c3;
+  --accent: #c74730;
+  --accent-hover: #a93825;
+  --focus: #176b66;
+  --danger: #b42318;
+  --success: #286344;
+  --note-cream: #f7e8b2;
+  --control-border: #777367;
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-small: 6px;
+  --radius-large: 14px;
+  --content-width: 1120px;
+  --page-gutter: clamp(20px, 4vw, 48px);
+  --motion-fast: 120ms;
+  --motion-standard: 180ms;
+  --shadow-paper: 0 2px 6px rgb(40 39 32 / 3%);
+}

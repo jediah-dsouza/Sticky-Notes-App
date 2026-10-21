@@ -1,0 +1,110 @@
+/* Breakpoint: 600px, where header/footer copy benefits from stacking. */
+.shell {
+  width: min(100%, calc(var(--content-width) + 2 * var(--page-gutter)));
+  min-height: 100svh;
+  padding-inline: var(--page-gutter);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--border);
+}
+.identity {
+  display: inline-flex;
+  align-items: baseline;
+  min-height: 44px;
+  padding-block: var(--space-2);
+  font-weight: 650;
+  font-size: 18px;
+  letter-spacing: -0.035em;
+  text-decoration: none;
+}
+.identityMark {
+  color: var(--accent);
+  font-size: 26px;
+  line-height: 1;
+  margin-left: 2px;
+}
+.headerNote,
+.eyebrow,
+.footer,
+.disclosure {
+  font-size: 14px;
+}
+.headerNote {
+  color: var(--ink-secondary);
+}
+.main {
+  flex: 1;
+  padding-block: var(--space-8) var(--space-12);
+}
+.introduction {
+  margin-bottom: var(--space-6);
+}
+.introduction h1 {
+  font-size: clamp(28px, 3vw, 36px);
+}
+.eyebrow {
+  color: var(--ink-secondary);
+  margin-bottom: var(--space-2);
+}
+.lead {
+  margin-top: var(--space-2);
+  color: var(--ink-secondary);
+}
+.disclosure {
+  margin-top: var(--space-5);
+  max-width: 70ch;
+  color: var(--ink-secondary);
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--border);
+  color: var(--ink-secondary);
+}
+.returnLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 44px;
+  margin-top: var(--space-8);
+  padding: var(--space-3) var(--space-5);
+  background: var(--accent);
+  border-radius: var(--radius-small);
+  color: var(--surface);
+  text-decoration: none;
+}
+.returnLink:hover {
+  background: var(--accent-hover);
+}
+@media (max-width: 600px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-block: var(--space-4);
+  }
+  .main {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+.collectionStatus:not(:empty) {
+  margin-top: var(--space-4);
+  font-size: 14px;
+  color: var(--success);
+}

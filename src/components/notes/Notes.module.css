@@ -1,0 +1,330 @@
+/* Paper Atelier: content-first composition and ordered, natural-height notes. */
+.composer {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-large);
+  background: var(--surface);
+  box-shadow: var(--shadow-paper);
+}
+.composer > .composerHeader {
+  padding: var(--space-5) var(--space-6);
+}
+.composer > .fields {
+  padding: var(--space-5) var(--space-6);
+}
+.composer .field textarea {
+  min-height: 128px;
+}
+.composer > .composerFooter {
+  padding: var(--space-4) var(--space-6);
+}
+.composerHeader {
+  padding: var(--space-6) var(--space-8);
+  border-bottom: 1px solid var(--border);
+}
+.composerHeader h2 {
+  font-size: 24px;
+  margin-bottom: var(--space-2);
+}
+.composerHeader p,
+.field label span,
+.collectionHeader p {
+  color: var(--ink-secondary);
+  font-size: 14px;
+}
+.fields {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-8);
+}
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.field label span {
+  font-weight: 400;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-small);
+  padding: var(--space-3);
+  color: var(--ink);
+  background: var(--surface);
+  line-height: 1.6;
+}
+.field input {
+  min-height: 48px;
+}
+.field textarea {
+  resize: vertical;
+  min-height: 144px;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-secondary);
+  opacity: 1;
+}
+.field [aria-invalid='true'] {
+  border-color: var(--danger);
+}
+.composerFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-8);
+  border-top: 1px solid var(--border);
+}
+.primaryButton,
+.secondaryButton {
+  min-height: 44px;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition:
+    background-color var(--motion-fast),
+    border-color var(--motion-fast);
+}
+.primaryButton {
+  /* Disabled-to-enabled color interpolation briefly fails text contrast. */
+  transition: none;
+  background: var(--accent);
+  color: var(--surface);
+  border: 1px solid var(--accent);
+}
+.primaryButton:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+.primaryButton:active:not(:disabled) {
+  background: var(--accent-hover);
+}
+.primaryButton:disabled {
+  background: var(--surface-muted);
+  color: var(--ink-secondary);
+  border-color: var(--control-border);
+  cursor: not-allowed;
+}
+.secondaryButton {
+  margin-top: var(--space-4);
+  border: 1px solid var(--control-border);
+  background: var(--surface);
+  color: var(--ink);
+}
+.secondaryButton:hover {
+  background: var(--surface-muted);
+}
+.composerFooter .status:empty {
+  min-height: 0;
+}
+.status {
+  min-height: 1.6em;
+  font-size: 14px;
+  color: var(--success);
+}
+.errorText {
+  font-size: 14px;
+  color: var(--danger);
+}
+.collection {
+  margin-top: var(--space-8);
+}
+.collectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.collectionHeader h2 {
+  font-size: 24px;
+}
+.empty {
+  padding: var(--space-8);
+  border-block: 1px solid var(--border);
+}
+.empty h3 {
+  font: 400 24px/1.3 var(--font-display);
+  margin: 0 0 var(--space-2);
+}
+.empty p {
+  color: var(--ink-secondary);
+}
+.grid {
+  --masonry-row: 4px;
+  --masonry-gutter: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+/* Non-dense row placement preserves DOM order in visual top/left scanning. */
+.grid[data-masonry='ready'] {
+  grid-auto-rows: var(--masonry-row);
+  grid-auto-flow: row;
+  row-gap: 0;
+}
+.grid li {
+  min-width: 0;
+}
+.card {
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-small);
+  background: var(--note-cream);
+  overflow-wrap: anywhere;
+}
+.card h3 {
+  margin: 0 0 var(--space-3);
+  font: 400 23px/1.25 var(--font-display);
+  white-space: pre-wrap;
+}
+.noteContent {
+  white-space: pre-wrap;
+}
+.timestamp {
+  color: var(--ink-secondary);
+  font-size: 14px;
+  margin-top: var(--space-6);
+}
+.recovery {
+  padding: var(--space-6);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  margin-bottom: var(--space-6);
+}
+.recovery h3 {
+  color: var(--danger);
+  font-size: 18px;
+  margin: 0 0 var(--space-2);
+}
+.recovery > p {
+  margin-top: var(--space-3);
+}
+@media (min-width: 960px) {
+  .composer > .fields {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: start;
+    gap: var(--space-6);
+  }
+  .composer > .fields > .errorText {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 600px) {
+  .composer > .composerHeader,
+  .composer > .fields,
+  .composer > .composerFooter {
+    padding-inline: var(--space-5);
+  }
+  .composerHeader,
+  .fields,
+  .composerFooter {
+    padding-inline: var(--space-5);
+  }
+  .composerFooter .status:not(:empty),
+  .composerFooter .errorText {
+    margin-bottom: var(--space-4);
+  }
+  .composerFooter {
+    gap: 0;
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .empty {
+    padding: var(--space-6) 0;
+  }
+}
+
+.cardActions {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.cardActions button {
+  margin-top: 0;
+}
+.deleteAction {
+  color: var(--danger);
+}
+.deletePreview {
+  font-weight: 600;
+}
+.destructiveButton {
+  background: var(--danger);
+}
+.destructiveButton:hover:not(:disabled) {
+  background: var(--danger);
+}
+
+.voice {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.voice .secondaryButton {
+  margin-top: 0;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  text-align: left;
+}
+.voice .secondaryButton:disabled {
+  cursor: not-allowed;
+  color: var(--ink-secondary);
+  background: var(--surface-muted);
+}
+.voiceHelp,
+.voiceStatus,
+.interim {
+  font-size: 14px;
+}
+.voiceHelp {
+  color: var(--ink-secondary);
+}
+.interim {
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--control-border);
+  white-space: pre-wrap;
+}
+
+/* Use the user's system palette, including the inherited text-fill color. */
+@media (forced-colors: active) {
+  .primaryButton {
+    color: ButtonText;
+    background: ButtonFace;
+    border-color: ButtonText;
+  }
+  .primaryButton:hover:not(:disabled),
+  .primaryButton:active:not(:disabled) {
+    color: ButtonText;
+    background: ButtonFace;
+    border-color: Highlight;
+  }
+  .primaryButton:disabled {
+    color: GrayText;
+    background: ButtonFace;
+    border-color: GrayText;
+  }
+  .primaryButton:focus-visible {
+    outline-color: Highlight;
+  }
+}

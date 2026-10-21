@@ -1,0 +1,68 @@
+.dialog {
+  width: min(640px, calc(100% - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  padding: 0;
+  margin: auto;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-large);
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow-paper);
+}
+.dialog::backdrop {
+  background: var(--backdrop);
+}
+.actions,
+.warningActions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.actions {
+  padding: var(--space-5) var(--space-8);
+  border-top: 1px solid var(--border);
+}
+.actions button,
+.warningActions button {
+  margin-top: 0;
+}
+.warning {
+  padding: var(--space-8);
+}
+.warning h2 {
+  font-size: 28px;
+  margin-bottom: var(--space-4);
+}
+.warningActions {
+  margin-top: var(--space-6);
+}
+@media (max-width: 600px) {
+  .actions,
+  .warning {
+    padding-inline: var(--space-5);
+  }
+  .actions,
+  .warningActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Keep dismissal and save reachable when errors or a small viewport add height. */
+.form {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 42px);
+}
+.header,
+.actions {
+  flex-shrink: 0;
+}
+.fields {
+  min-height: 0;
+  overflow-y: auto;
+}

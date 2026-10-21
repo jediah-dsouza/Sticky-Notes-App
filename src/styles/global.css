@@ -1,0 +1,79 @@
+@import './tokens.css';
+
+* {
+  box-sizing: border-box;
+}
+html {
+  min-width: 280px;
+  background: var(--canvas);
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 400 16px/1.6 var(--font-body);
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+h1,
+h2,
+p {
+  margin: 0;
+}
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+h1 {
+  max-width: 24ch;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+}
+h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+a {
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease;
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+:target {
+  scroll-margin-top: var(--space-6);
+}
+.skip-link {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 10;
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  transform: translateY(-200%);
+  clip-path: inset(50%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+  clip-path: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
