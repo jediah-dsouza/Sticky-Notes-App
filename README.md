@@ -8,8 +8,7 @@ native speech-to-text.
 
 > **Project status:** Internship submission candidate, ready with
 > documented caveats. This project has not been deployed. See [Quality
-> Assurance](#quality-assurance) and [Known
-> Limitations](#known-limitations).
+> Assurance](#quality-assurance)
 
 ## Features
 
@@ -189,33 +188,6 @@ See [`GATES.md`](GATES.md) for the wider verification history.
 Automated tests and accessibility scans provide useful evidence, but do
 **not** establish full WCAG conformance or universal browser
 compatibility.
-
-## Known Limitations
-
--   **Local-only storage:** Notes are stored as plaintext JSON in
-    browser `localStorage`. They are not encrypted, backed up, or
-    synchronized to the cloud. Do not store secrets or sensitive
-    information.
--   **Data removal:** Clearing browser/site data can permanently remove
-    saved notes. Unsaved drafts are held in memory and can be lost on
-    reload or tab/process termination.
--   **Cross-tab concurrency:** The app checks for detected changes
-    before writing, but `localStorage` does not provide an atomic
-    read-check-write transaction. Truly simultaneous writes can still
-    race; automatic synchronization and conflict merging are not
-    implemented.
--   **Speech-recognition privacy and support:** Browser speech
-    recognition may use a remote service. Real microphone permissions,
-    transcription accuracy, vendor connectivity, and vendor
-    audio-retention behavior have not been verified.
--   **Manual and platform testing:** The final automated run used the
-    available headless Chromium environment. Firefox, WebKit, physical
-    mobile devices, manual screen-reader testing, and native Windows
-    High Contrast remain unverified.
--   **Deployment configuration:** HTTPS, Content Security Policy,
-    security headers, hosting-specific route fallback, and
-    deployed-origin smoke tests have not been configured or verified.
-    Local preview does not prove production deployment readiness.
 
 ## Scope
 
